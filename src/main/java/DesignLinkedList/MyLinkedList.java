@@ -46,12 +46,36 @@ public class MyLinkedList {
 
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     public void addAtIndex(int index, int val) {
+        Linked linked = new Linked(val);
+        if (head==null && index==0) head = linked;
+        else {
+            if (head==null) return;
 
+            Linked link = head;
+            index--;
+            while (link.getLink()!=null && index>0){
+                link=link.getLink();
+                index--;
+            }
+            if (index==0){
+                linked.setLink(link.getLink());
+                link.setLink(linked);
+            }
+        }
     }
 
     /** Delete the index-th node in the linked list, if the index is valid. */
     public void deleteAtIndex(int index) {
-
+        Linked link = head;
+        index--;
+        while (index>0&&link!=null){
+            index--;
+            link=link.getLink();
+        }
+        if (link!=null){
+            if (link.getLink()!=null)
+                link.setLink(link.getLink().getLink());
+        }
     }
 
 }
