@@ -1,29 +1,21 @@
-import DesignLinkedList.MyLinkedList;
-import LinkedListCircle.ListNode;
-import LinkedListCircle.Solution;
-
 public class Main {
     public static void main(String[] args ) {
         try {
-            ////////////////
-            System.out.println("Design Linked List");
-            MyLinkedList linkedList = new MyLinkedList();
-            linkedList.addAtHead(1);
-            linkedList.addAtTail(3);
-            linkedList.addAtIndex(1, 2);  // linked list becomes 1->2->3
-            linkedList.get(1);            // returns 2
-            linkedList.deleteAtIndex(1);  // now the linked list is 1->3
-            linkedList.get(1);            // returns 3
-            ///////////
-            System.out.println("Linked List Cycle");
-            //Given a linked list, determine if it has a cycle in it.
-            Solution solution = new Solution();
-            ListNode head = new ListNode(1);
-            //ListNode node = new ListNode(2);
-            //head.next = node;
-            //node.next = new ListNode(3);
-            //node.next.next = new ListNode(4);
-            System.out.println(solution.hasCycle(head));
+            System.out.println("Linked List Cycle2");
+            //Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+            LinkedListCycle2.Solution solution2 = new LinkedListCycle2.Solution();
+
+            LinkedListCycle2.ListNode head = new LinkedListCycle2.ListNode(1);
+            head.next = new LinkedListCycle2.ListNode(2);
+            //head.next.next = new LinkedListCycle2.ListNode(3);
+            //head.next.next.next = new LinkedListCycle2.ListNode(4);
+            //head.next.next.next.next = new LinkedListCycle2.ListNode(5);
+            //head.next.next.next.next.next = new LinkedListCycle2.ListNode(6);
+            //head.next.next.next.next.next.next = head.next.next.next.next;
+            //head.next.next.next.next.next.next = head.next.next;
+            LinkedListCycle2.ListNode ret = solution2.detectCycle(head);
+            if (ret!=null) System.out.println("Cycle begins "+ret.val);
+            else System.out.println("Cycle begins "+ret);
 
         }catch (Exception e){
             System.out.print("Error:"+e.getMessage());
