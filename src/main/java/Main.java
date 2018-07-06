@@ -1,4 +1,6 @@
 import DesignLinkedList.MyLinkedList;
+import LinkedListCircle.ListNode;
+import LinkedListCircle.Solution;
 
 public class Main {
     public static void main(String[] args ) {
@@ -10,6 +12,15 @@ public class Main {
             linkedList.get(1);            // returns 2
             linkedList.deleteAtIndex(1);  // now the linked list is 1->3
             linkedList.get(1);            // returns 3
+
+            Solution solution = new Solution();
+            ListNode head = new ListNode(1);
+            //ListNode node = new ListNode(2);
+            //head.next = node;
+            //node.next = new ListNode(3);
+            //node.next.next = new ListNode(4);
+            System.out.println(solution.hasCycle(head));
+
         }catch (Exception e){
             System.out.print("Error:"+e.getMessage());
         }
